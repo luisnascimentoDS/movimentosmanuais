@@ -7,13 +7,10 @@ aplicação deverá ser desenvolvida com base no Modelo Entidade Relacionamento 
 acordo com os itens discriminados:
 
 1) Criar todas as tabelas conforme MER e dicionário de dados (Páginas 3 e 4).
-2) Criar uma stored procedure que retorne como saída as colunas Mês, Ano, Código do Produto,
-Descrição do Produto, Número do Lançamento, Descrição e Valor, ordenando os mesmos por
-Mês, Ano e Número do Lançamento utilizando as tabelas PRODUTO e MOVIMENTO_MANUAL.
+2) Criar uma stored procedure que retorne como saída as colunas Mês, Ano, Código do Produto, Descrição do Produto, Número do Lançamento, Descrição e Valor, ordenando os mesmos por Mês, Ano e Número do Lançamento utilizando as tabelas PRODUTO e MOVIMENTO_MANUAL.
 Essa stored procedure deverá ser utilizada no item 3.b.
 3) Criar uma tela para manutenção na tabela MOVIMENTO_MANUAL
 a) Protótipo:
-
 b) A tela deverá possuir um Grid, que sempre será preenchido com resultado da consulta
 realizada através da stored procedure do item 2.
 c) Na inclusão de um novo movimento essa tela deverá funcionar da seguinte maneira:
