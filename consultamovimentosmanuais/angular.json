@@ -119,6 +119,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "consultamovimentosmanuais"
+    }
+  },
+  "defaultProject": "consultamovimentosmanuais",
+  "cli": {
+    "analytics": "91d8b9f7-8fb6-4989-bb24-827e3f9c6508"
+  }
 }
