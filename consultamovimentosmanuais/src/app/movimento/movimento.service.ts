@@ -20,7 +20,7 @@ let MOVIMENTOS: Movimento[] = [
     produto: '1',
     cosif: '',
     valor: 500,
-    descrição: 'Teste Movimentos'
+    descricao: 'Teste Movimentos'
   },
   {
     numeroLancamento: 2,
@@ -29,7 +29,7 @@ let MOVIMENTOS: Movimento[] = [
     produto: '2',
     cosif: '',
     valor: 10,
-    descrição: 'Teste Movimentos 2'
+    descricao: 'Teste Movimentos 2'
   },
   {
     numeroLancamento: 3,
@@ -38,7 +38,7 @@ let MOVIMENTOS: Movimento[] = [
     produto: '1',
     cosif: '',
     valor: 12,
-    descrição: 'Teste Movimentos 2'
+    descricao: 'Teste Movimentos 2'
   },
   {
     numeroLancamento: 4,
@@ -47,7 +47,7 @@ let MOVIMENTOS: Movimento[] = [
     produto: '1',
     cosif: '',
     valor: 100,
-    descrição: 'Teste Movimentos 4'
+    descricao: 'Teste Movimentos 4'
   }
 
 ];

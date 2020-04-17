@@ -1,56 +1,95 @@
 <h4>Movimento</h4>
 
-<hr/>
+<hr />
 
-<form> <!-- #courseForm="ngForm" *ngIf="course"> -->
+<form #movimentoForm="ngForm">
 
-    <div class="form-group row">
-        <label class="col-sm-2 col-form-label">Name:</label>
- <!--       <div class="col-sm-10">
-            <input [(ngModel)]="course.name" required name="name" #courseName="ngModel" [ngClass]="{'is-invalid': courseName.invalid}" class="form-control">
+  <div class="form-group row">
+    <label class="col-sm-2 col-form-label">Mês</label>
+    <div class="col-sm-10">
+      <input [(ngModel)]="movimento.mes" required name="mes" #movimentoMes="ngModel"
+        [ngClass]="{'is-invalid': movimentoMes.invalid}" class="form-control">
 
-            <div class="invalid-feedback">
-                <span>Course name is required</span>
-            </div>
-        </div>  -->
+      <div class="invalid-feedback">
+        <span>preenchimento obrigatório</span>
+      </div>
     </div>
+  </div>
 
-    <div class="form-group row">
-        <label class="col-sm-2 col-form-label">Price:</label>
-  <!--      <div class="col-sm-10">
-            <input [(ngModel)]="course.price" required name="price" #coursePrice="ngModel" type="number"
-                [ngClass]="{'is-invalid': coursePrice.invalid}" class="form-control">
+  <div class="form-group row">
+    <label class="col-sm-2 col-form-label">Ano</label>
+    <div class="col-sm-10">
+      <input [(ngModel)]="movimento.ano" required name="ano" #movimentoAno="ngModel"
+        [ngClass]="{'is-invalid': movimentoAno.invalid}" class="form-control">
 
-            <div class="invalid-feedback">
-                <span>Course price is required</span>
-            </div>
-        </div> -->
+      <div class="invalid-feedback">
+        <span>preenchimento obrigatório</span>
+      </div>
     </div>
+  </div>
 
-    <div class="form-group row">
-        <label class="col-sm-2 col-form-label">Rating:</label>
-  <!--      <div class="col-sm-10">
-            <input [(ngModel)]="course.rating" required name="rating" #courseRating="ngModel" type="number"
-                [ngClass]="{'is-invalid': courseRating.invalid}" class="form-control">
+  <div class="form-group row">
+    <label class="col-sm-2 col-form-label">Produto</label>
+    <div class="col-sm-10">
+      <select name="produto">
+        <option value="1">Produto 1</option>
+        <option value="2">Produto 2</option>
+        <option value="3">Produto 3</option>
+        <option value="4">Produto 4</option>
+      </select>
+     <!-- <input [ngModel)]="movimento.produto" required name="produto" #movimentoProduto="ngModel"
+        [ngClass]="{'is-invalid': movimentoProduto.invalid}" class="form-control">-->
 
-            <div class="invalid-feedback">
-                <span>Course rating is required</span>
-            </div>
-        </div> -->
+      <div class="invalid-feedback">
+        <span>preenchimento obrigatório</span>
+      </div>
     </div>
+  </div>
 
-    <div class="form-group row">
-        <label class="col-sm-2 col-form-label">Description:</label>
-    <!--    <div class="col-sm-10">
-            <textarea [(ngModel)]="course.description" required name="description" #courseDescription="ngModel"
-                [ngClass]="{'is-invalid': courseDescription.invalid}" class="form-control"></textarea>
+  <div class="form-group row">
+    <label class="col-sm-2 col-form-label">Cosif</label>
+    <div class="col-sm-10">
+      <select name="cosif">
+        <option value="1">Cosif 1</option>
+        <option value="2">Cosif 2</option>
+        <option value="3">Cosif 3</option>
+        <option value="4">Cosif 4</option>
+      </select>
+    <!-- <input [(ngModel)]="movimento.cosif" required name="cosif" #movimentoCosif="ngModel"
+        [ngClass]="{'is-invalid': movimentoCosif.invalid}" class="form-control">-->
 
-            <div class="invalid-feedback">
-                <span>Course description is required</span>
-            </div>
-        </div> -->
+      <div class="invalid-feedback">
+        <span>preenchimento obrigatório</span>
+      </div>
     </div>
+  </div>
 
-  <!--  <button [disabled]="courseForm.invalid" (click)="save()" class="btn btn-primary mr-2">Save</button>
-    <button [routerLink]="['/courses']" class="btn btn-secondary">Back</button> -->
+  <div class="form-group row">
+    <label class="col-sm-2 col-form-label">Valor</label>
+    <div class="col-sm-10">
+      <input [(ngModel)]="movimento.valor" required name="valor" type="currency" #movimentoValor="ngModel"
+        [ngClass]="{'is-invalid': movimentoValor.invalid}" class="form-control">
+
+      <div class="invalid-feedback">
+        <span>preenchimento obrigatório</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="form-group row">
+    <label class="col-sm-2 col-form-label">Descrição</label>
+    <div class="col-sm-10">
+      <textarea [(ngModel)]="movimento.descricao" required name="descricao" #movimentoDescricao="ngModel"
+        [ngClass]="{'is-invalid': movimentoDescricao.invalid}" class="form-control"></textarea>
+
+      <div class="invalid-feedback">
+        <span>preenchimento obrigatório</span>
+      </div>
+    </div>
+  </div>
+
+  <button [disabled]="movimentoForm.invalid" class="btn btn-primary mr-2"> Incluir </button>
+  <button class="btn btn-secondary mr-2"> Novo </button>
+  <button class="btn btn-secondary"> Limpar </button>
 </form>
+

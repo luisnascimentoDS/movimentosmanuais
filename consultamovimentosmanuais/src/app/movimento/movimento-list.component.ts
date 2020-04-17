@@ -4,7 +4,8 @@ import { Movimento } from './movimento';
 
 @Component({
   selector: 'app-movimento-list',
-  templateUrl: './movimento-list.component.html'
+  templateUrl: './movimento-list.component.html',
+  styleUrls: ['./movimento-list.component.css']
 })
 export class MovimentoListComponent implements OnInit {
 

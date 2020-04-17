@@ -6,6 +6,6 @@ export class Movimento {
   produto: string;
   cosif: string;
   valor: number;
-  descrição: string;
+  descricao: string;
 
 }
