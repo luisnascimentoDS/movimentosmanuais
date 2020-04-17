@@ -22,14 +22,14 @@
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let movimento of movimentos">
-        <td>{{ movimento.mes}}</td>
-        <td>{{ movimento.ano}}</td>
-        <td>{{ movimento.produto}}</td>
+      <tr *ngFor="let movimentoIt of listaMovimentos">
+        <td>{{ movimentoIt.mes}}</td>
+        <td>{{ movimentoIt.ano}}</td>
+        <td>{{ movimentoIt.produto}}</td>
         <td>Descrição dos Produtos</td>
-        <td>{{ movimento.numeroLancamento}}</td>
-        <td>{{ movimento.descricao}}</td>
-        <td>{{ movimento.valor | currency: 'BRL'}}</td>
+        <td>{{ movimentoIt.numeroLancamento}}</td>
+        <td>{{ movimentoIt.descricao}}</td>
+        <td>{{ movimentoIt.valor | currency: 'BRL'}}</td>
       </tr>
     </tbody>
   </table>

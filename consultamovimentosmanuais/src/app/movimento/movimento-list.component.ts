@@ -9,11 +9,11 @@ import { Movimento } from './movimento';
 })
 export class MovimentoListComponent implements OnInit {
 
-  movimentos: Movimento[] = [];
+  listaMovimentos: Movimento[] = [];
   constructor(private movimentoService: MovimentoService) {}
 
   ngOnInit(): void {
-    this.movimentos = this.movimentoService.retrieveAll();
+    this.listaMovimentos = this.movimentoService.retrieveAll();
   }
 
 }

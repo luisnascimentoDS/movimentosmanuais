@@ -1,5 +1,6 @@
 import { Injectable } from "@angular/core";
 import { Movimento } from './movimento';
+import { findLast } from '@angular/compiler/src/directive_resolver';
 
 @Injectable({
   providedIn: 'root'
@@ -8,6 +9,15 @@ export class MovimentoService {
 
   retrieveAll(): Movimento[] {
     return MOVIMENTOS;
+  }
+
+  include(movimento: Movimento): void {
+
+    const index = (MOVIMENTOS.length) - 1;
+    // tslint:disable-next-line:variable-name
+    const _movAux: Movimento = MOVIMENTOS[index];
+    movimento.numeroLancamento = _movAux.numeroLancamento + 1;
+    MOVIMENTOS.push(movimento);
   }
 }
 
