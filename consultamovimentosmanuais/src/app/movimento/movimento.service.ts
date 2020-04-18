@@ -1,6 +1,6 @@
 import { Injectable } from "@angular/core";
 import { Movimento } from './movimento';
-import { findLast } from '@angular/compiler/src/directive_resolver';
+import { Cosif } from '../cosif/cosif';
 
 @Injectable({
   providedIn: 'root'
@@ -27,8 +27,8 @@ let MOVIMENTOS: Movimento[] = [
     numeroLancamento: 1,
     mes: 2,
     ano: 2012,
-    produto: '1',
-    cosif: '',
+    produto: 1,
+    cosif: 1,
     valor: 500,
     descricao: 'Teste Movimentos'
   },
@@ -36,8 +36,8 @@ let MOVIMENTOS: Movimento[] = [
     numeroLancamento: 2,
     mes: 2,
     ano: 2012,
-    produto: '2',
-    cosif: '',
+    produto: 2,
+    cosif: 2,
     valor: 10,
     descricao: 'Teste Movimentos 2'
   },
@@ -45,8 +45,8 @@ let MOVIMENTOS: Movimento[] = [
     numeroLancamento: 3,
     mes: 2,
     ano: 2012,
-    produto: '1',
-    cosif: '',
+    produto: 3,
+    cosif: 3,
     valor: 12,
     descricao: 'Teste Movimentos 2'
   },
@@ -54,8 +54,8 @@ let MOVIMENTOS: Movimento[] = [
     numeroLancamento: 4,
     mes: 2,
     ano: 2012,
-    produto: '1',
-    cosif: '',
+    produto: 4,
+    cosif: 4,
     valor: 100,
     descricao: 'Teste Movimentos 4'
   }

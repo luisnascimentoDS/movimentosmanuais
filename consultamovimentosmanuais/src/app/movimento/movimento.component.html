@@ -8,10 +8,12 @@
     <label class="col-sm-2 col-form-label">Mês</label>
     <div class="col-sm-10">
       <input [(ngModel)]="movimento.mes" required name="mes" #movimentoMes="ngModel"
-        [ngClass]="{'is-invalid': movimentoMes.invalid && (movimentoMes.dirty || movimentoMes.touched)}" class="form-control">
+        [ngClass]="{'is-invalid': movimentoMes.invalid && (movimentoMes.dirty || movimentoMes.touched)}"
+        class="form-control">
 
       <div class="invalid-feedback">
-        <span *ngIf="movimentoMes.invalid && (movimentoMes.dirty || movimentoMes.touched)">preenchimento obrigatório</span>
+        <span *ngIf="movimentoMes.invalid && (movimentoMes.dirty || movimentoMes.touched)">preenchimento
+          obrigatório</span>
       </div>
     </div>
   </div>
@@ -20,10 +22,12 @@
     <label class="col-sm-2 col-form-label">Ano</label>
     <div class="col-sm-10">
       <input [(ngModel)]="movimento.ano" required name="ano" #movimentoAno="ngModel"
-        [ngClass]="{'is-invalid': movimentoAno.invalid && (movimentoAno.dirty || movimentoAno.touched)}" class="form-control">
+        [ngClass]="{'is-invalid': movimentoAno.invalid && (movimentoAno.dirty || movimentoAno.touched)}"
+        class="form-control">
 
       <div class="invalid-feedback">
-        <span *ngIf="movimentoAno.invalid && (movimentoAno.dirty || movimentoAno.touched)">preenchimento obrigatório</span>
+        <span *ngIf="movimentoAno.invalid && (movimentoAno.dirty || movimentoAno.touched)">preenchimento
+          obrigatório</span>
       </div>
     </div>
   </div>
@@ -31,17 +35,14 @@
   <div class="form-group row">
     <label class="col-sm-2 col-form-label">Produto</label>
     <div class="col-sm-10">
-      <select name="produto">
-        <option value="1">Produto 1</option>
-        <option value="2">Produto 2</option>
-        <option value="3">Produto 3</option>
-        <option value="4">Produto 4</option>
+      <select [(ngModel)]="movimento.produto" name="produto" #movimentoProduto="ngModel" class="form-control" [ngClass]="{'is-invalid': movimentoProduto.invalid}">
+        <option *ngFor="let produtoIt of listaProduto" value={{produtoIt.id}} >{{produtoIt.descricao}}</option>
       </select>
-     <!-- <input [ngModel)]="movimento.produto" required name="produto" #movimentoProduto="ngModel"
-        [ngClass]="{'is-invalid': movimentoProduto.invalid}" class="form-control">-->
-
       <div class="invalid-feedback">
-        <span>preenchimento obrigatório</span>
+        <div class="invalid-feedback">
+          <span *ngIf="movimentoProduto.invalid && (movimentoProduto.dirty || movimentoProduto.touched)">preenchimento
+            obrigatório</span>
+        </div>
       </div>
     </div>
   </div>
@@ -49,17 +50,12 @@
   <div class="form-group row">
     <label class="col-sm-2 col-form-label">Cosif</label>
     <div class="col-sm-10">
-      <select name="cosif">
-        <option value="1">Cosif 1</option>
-        <option value="2">Cosif 2</option>
-        <option value="3">Cosif 3</option>
-        <option value="4">Cosif 4</option>
+      <select [(ngModel)]="movimento.cosif" name="cosif" #movimentoCosif="ngModel" class="form-control" [ngClass]="{'is-invalid': movimentoCosif.invalid}">
+        <option *ngFor="let cosifIt of listaCosif" value={{cosifIt.id}} >{{cosifIt.descricao}}</option>
       </select>
-    <!-- <input [(ngModel)]="movimento.cosif" required name="cosif" #movimentoCosif="ngModel"
-        [ngClass]="{'is-invalid': movimentoCosif.invalid}" class="form-control">-->
-
       <div class="invalid-feedback">
-        <span>preenchimento obrigatório</span>
+        <span *ngIf="movimentoCosif.invalid && (movimentoCosif.dirty || movimentoCosif.touched)">preenchimento
+          obrigatório</span>
       </div>
     </div>
   </div>
@@ -67,11 +63,13 @@
   <div class="form-group row">
     <label class="col-sm-2 col-form-label">Valor</label>
     <div class="col-sm-10">
-      <input [(ngModel)]="movimento.valor" required name="valor" type="currency" #movimentoValor="ngModel"
-        [ngClass]="{'is-invalid': movimentoValor.invalid && (movimentoValor.dirty || movimentoValor.touched)}" class="form-control">
+      <input [(ngModel)]="movimento.valor" required name="valor" #movimentoValor="ngModel"
+        [ngClass]="{'is-invalid': movimentoValor.invalid && (movimentoValor.dirty || movimentoValor.touched)}"
+        class="form-control" type="currency" placeholder="R$ ">
 
       <div class="invalid-feedback">
-        <span *ngIf="movimentoValor.invalid && (movimentoValor.dirty || movimentoValor.touched)">preenchimento obrigatório</span>
+        <span *ngIf="movimentoValor.invalid && (movimentoValor.dirty || movimentoValor.touched)">preenchimento
+          obrigatório</span>
       </div>
     </div>
   </div>
@@ -80,10 +78,13 @@
     <label class="col-sm-2 col-form-label">Descrição</label>
     <div class="col-sm-10">
       <textarea [(ngModel)]="movimento.descricao" required name="descricao" #movimentoDescricao="ngModel"
-        [ngClass]="{'is-invalid': movimentoDescricao.invalid  && (movimentoDescricao.dirty || movimentoDescricao.touched)}" class="form-control"></textarea>
+        [ngClass]="{'is-invalid': movimentoDescricao.invalid  && (movimentoDescricao.dirty || movimentoDescricao.touched)}"
+        class="form-control"></textarea>
 
       <div class="invalid-feedback">
-        <span *ngIf="movimentoDescricao.invalid && (movimentoDescricao.dirty || movimentoDescricao.touched)">preenchimento obrigatório</span>
+        <span
+          *ngIf="movimentoDescricao.invalid && (movimentoDescricao.dirty || movimentoDescricao.touched)">preenchimento
+          obrigatório</span>
       </div>
     </div>
   </div>
@@ -92,4 +93,3 @@
   <button class="btn btn-secondary mr-2"> Novo </button>
   <button class="btn btn-secondary"> Limpar </button>
 </form>
-
