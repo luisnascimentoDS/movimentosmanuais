@@ -2,14 +2,14 @@
 
 <hr />
 
-<form #movimentoForm="ngForm" ng-disabled="true">
+<form #movimentoForm="ngForm">
 
   <div class="form-group row">
     <label class="col-sm-2 col-form-label">Mês</label>
     <div class="col-sm-10">
-      <input [(ngModel)]="movimento.mes" required name="mes" #movimentoMes="ngModel"
+      <input [(ngModel)]="movimento.mes" required name="mes" #movimentoMes="ngModel" id="mes" readonly
         [ngClass]="{'is-invalid': movimentoMes.invalid && (movimentoMes.dirty || movimentoMes.touched)}"
-        class="form-control">
+        class="form-control" type="number" min="1" max="12">
 
       <div class="invalid-feedback">
         <span *ngIf="movimentoMes.invalid && (movimentoMes.dirty || movimentoMes.touched)">preenchimento
@@ -21,9 +21,9 @@
   <div class="form-group row">
     <label class="col-sm-2 col-form-label">Ano</label>
     <div class="col-sm-10">
-      <input [(ngModel)]="movimento.ano" required name="ano" #movimentoAno="ngModel"
+      <input [(ngModel)]="movimento.ano" required name="ano" #movimentoAno="ngModel" id="ano" readonly
         [ngClass]="{'is-invalid': movimentoAno.invalid && (movimentoAno.dirty || movimentoAno.touched)}"
-        class="form-control">
+        class="form-control" type="number" min="1900" max="9999">
 
       <div class="invalid-feedback">
         <span *ngIf="movimentoAno.invalid && (movimentoAno.dirty || movimentoAno.touched)">preenchimento
@@ -35,7 +35,7 @@
   <div class="form-group row">
     <label class="col-sm-2 col-form-label">Produto</label>
     <div class="col-sm-10">
-      <select [(ngModel)]="movimento.produto" name="produto" #movimentoProduto="ngModel" class="form-control" [ngClass]="{'is-invalid': movimentoProduto.invalid}">
+      <select [(ngModel)]="movimento.produto" name="produto" #movimentoProduto="ngModel" class="form-control" [ngClass]="{'is-invalid': movimentoProduto.invalid}" id="produto" readonly>
         <option *ngFor="let produtoIt of listaProduto" value={{produtoIt.id}} >{{produtoIt.descricao}}</option>
       </select>
       <div class="invalid-feedback">
@@ -50,7 +50,7 @@
   <div class="form-group row">
     <label class="col-sm-2 col-form-label">Cosif</label>
     <div class="col-sm-10">
-      <select [(ngModel)]="movimento.cosif" name="cosif" #movimentoCosif="ngModel" class="form-control" [ngClass]="{'is-invalid': movimentoCosif.invalid}">
+      <select [(ngModel)]="movimento.cosif" name="cosif" #movimentoCosif="ngModel" class="form-control" [ngClass]="{'is-invalid': movimentoCosif.invalid}" id="cosif" readonly>
         <option *ngFor="let cosifIt of listaCosif" value={{cosifIt.id}} >{{cosifIt.descricao}}</option>
       </select>
       <div class="invalid-feedback">
@@ -63,9 +63,9 @@
   <div class="form-group row">
     <label class="col-sm-2 col-form-label">Valor</label>
     <div class="col-sm-10">
-      <input [(ngModel)]="movimento.valor" required name="valor" #movimentoValor="ngModel"
+      <input [(ngModel)]="movimento.valor" required name="valor" #movimentoValor="ngModel" id="valor" readonly
         [ngClass]="{'is-invalid': movimentoValor.invalid && (movimentoValor.dirty || movimentoValor.touched)}"
-        class="form-control" type="currency" placeholder="R$ ">
+        class="form-control" type="text" data-type="currency">
 
       <div class="invalid-feedback">
         <span *ngIf="movimentoValor.invalid && (movimentoValor.dirty || movimentoValor.touched)">preenchimento
@@ -77,7 +77,7 @@
   <div class="form-group row">
     <label class="col-sm-2 col-form-label">Descrição</label>
     <div class="col-sm-10">
-      <textarea [(ngModel)]="movimento.descricao" required name="descricao" #movimentoDescricao="ngModel"
+      <textarea [(ngModel)]="movimento.descricao" required name="descricao" #movimentoDescricao="ngModel" id="descricao" readonly
         [ngClass]="{'is-invalid': movimentoDescricao.invalid  && (movimentoDescricao.dirty || movimentoDescricao.touched)}"
         class="form-control"></textarea>
 
@@ -89,7 +89,7 @@
     </div>
   </div>
 
-  <button [disabled]="movimentoForm.invalid" (click)="include()" class="btn btn-primary mr-2"> Incluir </button>
-  <button class="btn btn-secondary mr-2"> Novo </button>
-  <button class="btn btn-secondary"> Limpar </button>
+  <button [disabled]="movimentoForm.invalid" (click)="include()" id="btnIncluir" class="btn btn-primary mr-2"> Incluir </button>
+  <button id="btnNovo" class="btn btn-secondary mr-2"> Novo </button>
+  <button class="btn btn-secondary" id="btnLimpar" disabled (click)="reset()"> Limpar </button>
 </form>

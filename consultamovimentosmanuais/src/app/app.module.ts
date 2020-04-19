@@ -7,6 +7,8 @@ import { AppComponent } from './app.component';
 import { TitleComponent } from './title/title.component';
 import { MovimentoComponent } from './movimento/movimento.component';
 import { MovimentoListComponent } from './movimento/movimento-list.component';
+import { Error404Component } from './error-404/error-404.component';
+import { RouterModule } from '@angular/router';
 
 @NgModule({
   declarations: [
@@ -18,7 +20,18 @@ import { MovimentoListComponent } from './movimento/movimento-list.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    RouterModule.forRoot([
+      {
+        path: '', redirectTo: 'movimentos', pathMatch: 'full'
+      },
+      {
+        path: 'movimentos', component: MovimentoComponent
+      },
+      {
+        path: '**', component: Error404Component
+      }
+    ]),
   ],
   providers: [],
   bootstrap: [AppComponent]
