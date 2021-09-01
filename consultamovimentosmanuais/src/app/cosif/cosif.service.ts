@@ -9,7 +9,7 @@ import { Cosif } from './cosif';
 export class CosifService {
 
   retrieveAll() {
-    return this.http.get<Array<Cosif>>(`${environment.apiUrl}/cosif`);
+    return this.http.get<Array<Cosif>>(`${environment.apiUrl}/produto-cosif`);
   }
 
   constructor(private http: HttpClient) {
