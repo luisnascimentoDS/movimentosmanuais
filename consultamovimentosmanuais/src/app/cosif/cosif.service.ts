@@ -1,4 +1,6 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { environment } from 'src/environments/environment';
 import { Cosif } from './cosif';
 
 @Injectable({
@@ -6,14 +8,16 @@ import { Cosif } from './cosif';
 })
 export class CosifService {
 
-  retrieveAll(): Cosif [] {
+  retrieveAll() {
+    return this.http.get<Array<Cosif>>(`${environment.apiUrl}/cosif`);
+  }
 
-    return COSIFS;
+  constructor(private http: HttpClient) {
   }
 }
 
 // tslint:disable-next-line:prefer-const
-let COSIFS: Cosif[] = [
+/*let COSIFS: Cosif[] = [
 
   {
     id: 1,
@@ -31,4 +35,4 @@ let COSIFS: Cosif[] = [
     id: 4,
     descricao: 'Cosif 4'
   }
-];
+];*/

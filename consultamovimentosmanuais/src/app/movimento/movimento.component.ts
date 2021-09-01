@@ -16,12 +16,11 @@ import * as $ from 'jquery';
 export class MovimentoComponent implements OnInit {
 
   movimento: Movimento;
-  listaProduto: Produto [];
-  listaCosif: Cosif [];
+  listaProduto: Array<Produto> = new Array<Produto>();
+  listaCosif: Array<Cosif> = new Array<Cosif>();
 
-  // tslint:disable-next-line:max-line-length
+
   constructor(private activedRoute: ActivatedRoute, private movimentoServie: MovimentoService,
-    // tslint:disable-next-line:align
     private produtoService: ProdutoService, private cosifService: CosifService) {}
 
   ngOnInit(): void {
@@ -39,13 +38,23 @@ export class MovimentoComponent implements OnInit {
 
       });
     this.movimento = new Movimento();
-    this.listaProduto = this.produtoService.retrieveAll();
-    this.listaCosif = this.cosifService.retrieveAll();
+    this.produtoService.retrieveAll().subscribe(p=> {
+      this.listaProduto = p;
+    });
+    this.cosifService.retrieveAll().subscribe(c=> {
+      this.listaCosif = c;
+    });
   }
 
   include(): void {
 
-    this.movimentoServie.include(this.movimento);
+    this.movimentoServie.saveMovimento(this.movimento).subscribe(
+      m => {
+
+      },
+      (error: any) => {
+        console.log(error);
+      });
     this.ngOnInit();
   }
 
@@ -55,7 +64,12 @@ export class MovimentoComponent implements OnInit {
       this.reset();
     });
     this.movimento = new Movimento();
-    this.listaProduto = this.produtoService.retrieveAll();
-    this.listaCosif = this.cosifService.retrieveAll();
+    this.movimento = new Movimento();
+    this.produtoService.retrieveAll().subscribe(p=> {
+      this.listaProduto = p;
+    });
+    this.cosifService.retrieveAll().subscribe(c=> {
+      this.listaCosif = c;
+    });
   }
 }

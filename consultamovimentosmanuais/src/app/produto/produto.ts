@@ -1,5 +1,6 @@
 export class Produto {
 
-  id: number;
-  descricao: string;
+  codProduto: number;
+  desDescricao: string;
+  staStatis: string;
 }

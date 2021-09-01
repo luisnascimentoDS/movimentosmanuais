@@ -9,11 +9,15 @@ import { Movimento } from './movimento';
 })
 export class MovimentoListComponent implements OnInit {
 
-  listaMovimentos: Movimento[] = [];
+  listaMovimentos: Array<Movimento> = new Array<Movimento>();
   constructor(private movimentoService: MovimentoService) {}
 
   ngOnInit(): void {
-    this.listaMovimentos = this.movimentoService.retrieveAll();
+   this.movimentoService.retrieveAll().subscribe(
+     m=> {
+       this.listaMovimentos = m;
+     }
+   );
   }
 
 }

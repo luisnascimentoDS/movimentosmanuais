@@ -1,28 +1,32 @@
 import { Injectable } from "@angular/core";
 import { Movimento } from './movimento';
-import { Cosif } from '../cosif/cosif';
+import { environment } from "src/environments/environment";
+import { HttpClient, HttpHeaders } from "@angular/common/http";
 
 @Injectable({
   providedIn: 'root'
 })
 export class MovimentoService {
 
-  retrieveAll(): Movimento[] {
-    return MOVIMENTOS;
+  httpOptions = {
+    headers: new HttpHeaders({ 'Content-Type': 'application/json' })
   }
 
-  include(movimento: Movimento): void {
+  retrieveAll() {
+    return this.http.get<Array<Movimento>>(`${environment.apiUrl}/movimentos-manuais`);
+  }
 
-    const index = (MOVIMENTOS.length) - 1;
-    // tslint:disable-next-line:variable-name
-    const _movAux: Movimento = MOVIMENTOS[index];
-    movimento.numeroLancamento = _movAux.numeroLancamento + 1;
-    MOVIMENTOS.push(movimento);
+  saveMovimento(m: Movimento) {
+    var body = JSON.stringify(m);
+    return this.http.post<Array<Movimento>>(`${environment.apiUrl}/movimentos-manuais`, body, this.httpOptions);
+  }
+
+  constructor(private http: HttpClient) {
   }
 }
 
 // tslint:disable-next-line:prefer-const
-let MOVIMENTOS: Movimento[] = [
+/*let MOVIMENTOS: Movimento[] = [
   {
     numeroLancamento: 1,
     mes: 2,
@@ -60,4 +64,4 @@ let MOVIMENTOS: Movimento[] = [
     descricao: 'Teste Movimentos 4'
   }
 
-];
+];*/
